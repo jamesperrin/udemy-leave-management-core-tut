@@ -1,0 +1,80 @@
+Complete ASP.NET Core and Entity Framework Development
+Learn ASP.NET Core and Entity Framework by building and publishing a practical Employee Leave Management System.
+https://www.udemy.com/course/complete-aspnet-core-31-and-entity-framework-development
+
+Core Leave Management Master
+https://github.com/trevoirwilliams/leave-management
+
+Section04 - Source Code
+https://github.com/trevoirwilliams/leave-management/tree/b8480283a961ac68b411ff09aa55ea57c4b9d240
+
+Section05 - Source Code
+https://github.com/trevoirwilliams/leave-management/tree/d0f9e436e735e56d84713e0647b5389bb2b977cc
+
+Section06 - Source Code
+https://github.com/trevoirwilliams/leave-management/tree/215715e4718999115b421b978e4b14949842069d
+
+Section08 - Source Code
+https://github.com/trevoirwilliams/leave-management/tree/ebf5a49370f4e6f26aa14303f81b55b954b20ae7
+
+Section09 - Source Code
+https://github.com/trevoirwilliams/leave-management/tree/f72424cded1f55e6857183951bb8154f8cb48c41
+
+DATATABLES JS
+https://datatables.net/
+https://www.bootstrapcdn.com/fontawesome/
+https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+
+FONT AWESOME
+https://fontawesome.com/v4.7.0/icons/
+
+REQUIRED NUGET PACKAGES
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.SqlServer.Design
+Microsoft.EntityFrameworkCore.Tools
+> Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Microsoft.AspNetCore.Identity.UI
+
+AutoMapper
+AutoMapper.Extensions.Microsoft.DependencyInjection
+
+CONNECTION STRINGS
+Data Source=(localdb)\mssqllocaldb;Initial Catalog=udemy_leave_management;Integrated Security=True;
+
+"ConnectionStrings": {
+"DefaultConnection": "Server=(localdb)\\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+
+EF CORE SCAFFOLDING
+Scaffold-DbContext "Connection String" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities
+
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force -OutputDir Models\Entities
+
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities -force
+
+https://www.learnentityframeworkcore.com/walkthroughs/existing-database
+
+Updating the Model link
+
+The recommended approach to keeping changes to the database in sync with the generated model is to use migrations. However, if you want to re-scaffold the model after making schema changes, you can do so by specifying the -force option e.g.:
+
+dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force
+
+All of the class files will be overwritten, which means that any amendments that you might have made to them e.g. adding attributes or additional members, will be lost.
+
+Visual Studio link
+If you are working with Visual Studio, you can use the Package Manager Console commands to generate the the code files for the model. The equivalent command to the last CLI command just above is:
+
+PM> Scaffold-DbContext "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "AdventureContext" -DataAnnotations
+
+The dotnet ef tool is no longer part of the .NET Core SDK
+This change allows us to ship dotnet ef as a regular .NET CLI tool that can be installed as either a global or local tool.For example, to be able to manage migrations or scaffold a DbContext, install dotnet ef as a global tool typing the following command:
+https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/
+
+dotnet tool install --global dotnet-ef
