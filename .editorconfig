@@ -133,13 +133,6 @@ dotnet_remove_unnecessary_suppression_exclusions                                
 dotnet_style_allow_multiple_blank_lines_experimental                              = false
 dotnet_style_allow_statement_immediately_after_block_experimental                 = false
 
-# IDE0055: Fix formatting
-dotnet_diagnostic.IDE0055.severity = none
-
-# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-dotnet_diagnostic.CS8632.severity = none
-
-
 #### C# Coding Conventions ####
 
 # var preferences
@@ -296,3 +289,14 @@ dotnet_naming_style._fieldname.required_prefix                                  
 dotnet_naming_style._fieldname.required_suffix =
 dotnet_naming_style._fieldname.word_separator =
 dotnet_naming_style._fieldname.capitalization                                     = camel_case
+
+#### DOTNET DIAGNOSTIC OVERRIDES ####
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = none
+
+# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+dotnet_diagnostic.CS8632.severity = none
+
+# CS8618: Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+dotnet_diagnostic.CS8618.severity = silent

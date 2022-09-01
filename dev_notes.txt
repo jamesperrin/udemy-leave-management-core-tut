@@ -8,10 +8,8 @@ https://github.com/trevoirwilliams/leave-management
 Section03 - Source Code
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/218ac8802a98324250536ec414f71b8317457925
 
-Section04 - Source Code
-https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/9afba13d1c7954000f98caf8d4dbd09723d989b1
+update-database -- Initial Schema
 
-update-database
 Add Employee class code
 add-migration ExtendedUserTable
 Remove-Migration
@@ -21,7 +19,29 @@ public string LastName { get; set; }
 
 [Column(TypeName = "datetime2(4)")]
 public DateTime DateJoined { get; set; }
-		
+
+add-migration ExtendedUserTable
+update-database
+
+Section04 - Source Code
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/9afba13d1c7954000f98caf8d4dbd09723d989b1
+
+add-migration AddedLeaveTables
+
+migrationBuilder.CreateIndex(
+	name: "IX_LeaveTypes_Name",
+	table: "LeaveTypes",
+	column: "Name");
+	
+migrationBuilder.AddUniqueConstraint(
+	name: "UC_LeaveTypes_Name",
+	table: "LeaveTypes",
+	column: "Name");
+	
+b.HasIndex("Name").IsUnique();
+
+update-database
+
 Section05 - Source Code
 
 
