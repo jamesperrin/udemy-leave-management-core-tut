@@ -6,12 +6,22 @@ Core Leave Management Master
 https://github.com/trevoirwilliams/leave-management
 
 Section03 - Source Code
-https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/218ac8802a98324250536ec414f71b8317457925/LeaveManagement.Web/Views/Shared
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/218ac8802a98324250536ec414f71b8317457925
 
 Section04 - Source Code
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/9afba13d1c7954000f98caf8d4dbd09723d989b1
 
+update-database
+Add Employee class code
+add-migration ExtendedUserTable
+Remove-Migration
 
+[Column(TypeName = "varchar(256)")]
+public string LastName { get; set; }
+
+[Column(TypeName = "datetime2(4)")]
+public DateTime DateJoined { get; set; }
+		
 Section05 - Source Code
 
 
