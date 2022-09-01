@@ -1,0 +1,3 @@
+SCDD17D95A4DF4EE1B4B166A536AEAA7E
+The program can potentially use a variable before it has been initialized.
+/src/**/*.cshtml

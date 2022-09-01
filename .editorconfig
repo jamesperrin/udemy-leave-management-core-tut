@@ -128,9 +128,17 @@ dotnet_code_quality_unused_parameters                                           
 # Suppression preferences
 dotnet_remove_unnecessary_suppression_exclusions                                  = none
 
+
 # New line preferences
 dotnet_style_allow_multiple_blank_lines_experimental                              = false
 dotnet_style_allow_statement_immediately_after_block_experimental                 = false
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = none
+
+# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+dotnet_diagnostic.CS8632.severity = none
+
 
 #### C# Coding Conventions ####
 

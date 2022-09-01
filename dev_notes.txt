@@ -5,20 +5,24 @@ https://www.udemy.com/course/complete-aspnet-core-31-and-entity-framework-develo
 Core Leave Management Master
 https://github.com/trevoirwilliams/leave-management
 
+Section03 - Source Code
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/218ac8802a98324250536ec414f71b8317457925/LeaveManagement.Web/Views/Shared
+
 Section04 - Source Code
-https://github.com/trevoirwilliams/leave-management/tree/b8480283a961ac68b411ff09aa55ea57c4b9d240
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/9afba13d1c7954000f98caf8d4dbd09723d989b1
+
 
 Section05 - Source Code
-https://github.com/trevoirwilliams/leave-management/tree/d0f9e436e735e56d84713e0647b5389bb2b977cc
+
 
 Section06 - Source Code
-https://github.com/trevoirwilliams/leave-management/tree/215715e4718999115b421b978e4b14949842069d
+
 
 Section08 - Source Code
-https://github.com/trevoirwilliams/leave-management/tree/ebf5a49370f4e6f26aa14303f81b55b954b20ae7
+
 
 Section09 - Source Code
-https://github.com/trevoirwilliams/leave-management/tree/f72424cded1f55e6857183951bb8154f8cb48c41
+
 
 DATATABLES JS
 https://datatables.net/
@@ -43,7 +47,7 @@ AutoMapper
 AutoMapper.Extensions.Microsoft.DependencyInjection
 
 CONNECTION STRINGS
-Data Source=(localdb)\mssqllocaldb;Initial Catalog=udemy_leave_management;Integrated Security=True;
+Data Source=(localdb)\mssqllocaldb2019;Initial Catalog=LeaveManagement;Integrated Security=True;
 
 "ConnectionStrings": {
 "DefaultConnection": "Server=(localdb)\\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;MultipleActiveResultSets=true"
@@ -52,11 +56,11 @@ Data Source=(localdb)\mssqllocaldb;Initial Catalog=udemy_leave_management;Integr
 EF CORE SCAFFOLDING
 Scaffold-DbContext "Connection String" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
-Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities
 
-dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force -OutputDir Models\Entities
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force -OutputDir Models\Entities
 
-dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=udemy_leave_management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities -force
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities -force
 
 https://www.learnentityframeworkcore.com/walkthroughs/existing-database
 
