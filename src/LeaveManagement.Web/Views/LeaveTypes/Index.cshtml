@@ -1,4 +1,4 @@
-@model IEnumerable<LeaveManagement.Web.Data.LeaveType>
+@model IEnumerable<LeaveManagement.Web.Models.LeaveTypeVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create New">Create New</a>
 </p>
 
 @if (!Model.Any())
@@ -42,9 +42,9 @@ else
                         @Html.DisplayFor(modelItem => item.DefaultDays)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete">Delete</a>
                     </td>
                 </tr>
             }

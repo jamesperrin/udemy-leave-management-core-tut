@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LeaveManagement.Web.Data;
+using AutoMapper;
+using LeaveManagement.Web.Models;
 
 namespace LeaveManagement.Web.Controllers
 {
     public class LeaveTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public LeaveTypesController(ApplicationDbContext context)
+        public LeaveTypesController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: LeaveTypes
@@ -29,7 +33,9 @@ namespace LeaveManagement.Web.Controllers
 
             var leaveTypes = await _context.LeaveTypes.ToListAsync();
 
-            return View(leaveTypes);
+            var model = _mapper.Map<IEnumerable<LeaveTypeVM>>(leaveTypes);
+
+            return View(model);
 
         }
 
@@ -63,16 +69,21 @@ namespace LeaveManagement.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,DefaultDays,Id,DateCreated,DateModified")] LeaveType leaveType)
+        public async Task<IActionResult> Create([Bind("Name,DefaultDays,Id")] LeaveTypeVM leaveTypeVM)
         {
             if (ModelState.IsValid)
             {
+                var leaveType = _mapper.Map<LeaveType>(leaveTypeVM);
+                leaveType.DateCreated = DateTime.Now;
+                leaveType.DateModified = DateTime.Now;
+
                 _context.Add(leaveType);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(leaveType);
+            return View(leaveTypeVM);
         }
 
         // GET: LeaveTypes/Edit/5
