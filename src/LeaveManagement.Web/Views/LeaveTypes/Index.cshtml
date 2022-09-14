@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" title="Create New">Create New</a>
+    <a asp-action="Create" title="Create New" class="btn btn-link">Create New</a>
 </p>
 
 @if (!Model.Any())
@@ -42,9 +42,9 @@ else
                         @Html.DisplayFor(modelItem => item.DefaultDays)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit Leave Type @item.Name" class="btn btn-link">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details Leave Type @item.Name" class="btn btn-link">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete Leave Type @item.Name" class="btn btn-link">Delete</a>
                     </td>
                 </tr>
             }
