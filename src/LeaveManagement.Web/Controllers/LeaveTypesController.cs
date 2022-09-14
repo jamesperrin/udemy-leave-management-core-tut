@@ -148,6 +148,7 @@ namespace LeaveManagement.Web.Controllers
             return View(leaveTypeVM);
         }
 
+#if NOT_IMPLEMENTED
         // GET: LeaveTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -156,8 +157,7 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            var leaveType = await _context.LeaveTypes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var leaveType = await _context.LeaveTypes.FirstOrDefaultAsync(m => m.Id == id);
 
             if (leaveType == null)
             {
@@ -165,7 +165,8 @@ namespace LeaveManagement.Web.Controllers
             }
 
             return View(leaveType);
-        }
+        } 
+#endif
 
         // POST: LeaveTypes/Delete/5
         [HttpPost, ActionName("Delete")]

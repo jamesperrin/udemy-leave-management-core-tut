@@ -45,8 +45,11 @@ update-database
 Section05 - Source Code
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/de60379983683805c76c04726566da6b26c716a5
 
-Install Packages AutoMapper and utoMapper.Extensions.Microsoft.DependencyInjection.
+Install Packages AutoMapper and AutoMapper.Extensions.Microsoft.DependencyInjection.
 Add new AutoMapper MapperConfig file.
+
+Install Datatables.js via CDN
+Using Libmon installed jQuery, Bootstrap, jquery-validate, jquery-validation-unobtrusive, Sweetalert, and Font-Awesome.
 
 
 
