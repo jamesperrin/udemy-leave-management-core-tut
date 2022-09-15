@@ -5,7 +5,7 @@ https://www.udemy.com/course/complete-aspnet-core-31-and-entity-framework-develo
 Core Leave Management Master
 https://github.com/trevoirwilliams/leave-management
 
-Section03 - Source Code
+SECTION03 - SOURCE CODE
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/218ac8802a98324250536ec414f71b8317457925
 
 update-database -- Initial Schema
@@ -23,7 +23,7 @@ public DateTime DateJoined { get; set; }
 add-migration ExtendedUserTable
 update-database
 
-Section04 - Source Code
+SECTION04 - SOURCE CODE
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/9afba13d1c7954000f98caf8d4dbd09723d989b1
 
 add-migration AddedLeaveTables
@@ -42,25 +42,39 @@ b.HasIndex("Name").IsUnique();
 
 update-database
 
-Section05 - Source Code
+EF CORE SCAFFOLDING
+Scaffold-DbContext "Connection String" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagementNet6;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities
+
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagementNet6;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force -OutputDir Models\Entities
+
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagementNet6;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities -force
+
+https://www.learnentityframeworkcore.com/walkthroughs/existing-database
+
+Updating the Model link
+
+The recommended approach to keeping changes to the database in sync with the generated model is to use migrations. However, if you want to re-scaffold the model after making schema changes, you can do so by specifying the -force option e.g.:
+
+dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force
+
+All of the class files will be overwritten, which means that any amendments that you might have made to them e.g. adding attributes or additional members, will be lost.
+
+Visual Studio link
+If you are working with Visual Studio, you can use the Package Manager Console commands to generate the the code files for the model. The equivalent command to the last CLI command just above is:
+
+PM> Scaffold-DbContext "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "AdventureContext" -DataAnnotations
+
+The dotnet ef tool is no longer part of the .NET Core SDK
+This change allows us to ship dotnet ef as a regular .NET CLI tool that can be installed as either a global or local tool.For example, to be able to manage migrations or scaffold a DbContext, install dotnet ef as a global tool typing the following command:
+https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/
+
+dotnet tool install --global dotnet-ef
+
+
+SECTION05 - SOURCE CODE
 https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/de60379983683805c76c04726566da6b26c716a5
-
-Install Packages AutoMapper and AutoMapper.Extensions.Microsoft.DependencyInjection.
-Add new AutoMapper MapperConfig file.
-
-Install Datatables.js via CDN
-Using Libmon installed jQuery, Bootstrap, jquery-validate, jquery-validation-unobtrusive, Sweetalert, and Font-Awesome.
-
-
-
-Section06 - Source Code
-
-
-Section08 - Source Code
-
-
-Section09 - Source Code
-
 
 DATATABLES JS
 https://datatables.net/
@@ -88,35 +102,30 @@ CONNECTION STRINGS
 Data Source=(localdb)\mssqllocaldb2019;Initial Catalog=LeaveManagement;Integrated Security=True;
 
 "ConnectionStrings": {
-"DefaultConnection": "Server=(localdb)\\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;MultipleActiveResultSets=true"
+"DefaultConnection": "Server=(localdb)\\mssqllocaldb2019;Database=LeaveManagementNet6;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 
-EF CORE SCAFFOLDING
-Scaffold-DbContext "Connection String" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Install Packages AutoMapper and AutoMapper.Extensions.Microsoft.DependencyInjection.
+Add new AutoMapper MapperConfig file.
 
-Scaffold-DbContext "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities
+Install Datatables.js via CDN
+Using Libmon installed jQuery, Bootstrap, jquery-validate, jquery-validation-unobtrusive, Sweetalert, and Font-Awesome.
 
-dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force -OutputDir Models\Entities
 
-dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb2019;Database=LeaveManagement;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Entities -force
 
-https://www.learnentityframeworkcore.com/walkthroughs/existing-database
+SECTION06 - SOURCE CODE
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/aab083a45f9ef9fc22ee3546267f96f029fa4477
 
-Updating the Model link
 
-The recommended approach to keeping changes to the database in sync with the generated model is to use migrations. However, if you want to re-scaffold the model after making schema changes, you can do so by specifying the -force option e.g.:
+SECTION07 - SOURCE CODE
 
-dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -force
+SECTION08 - SOURCE CODE
 
-All of the class files will be overwritten, which means that any amendments that you might have made to them e.g. adding attributes or additional members, will be lost.
 
-Visual Studio link
-If you are working with Visual Studio, you can use the Package Manager Console commands to generate the the code files for the model. The equivalent command to the last CLI command just above is:
+SECTION09 - SOURCE CODE
 
-PM> Scaffold-DbContext "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "AdventureContext" -DataAnnotations
 
-The dotnet ef tool is no longer part of the .NET Core SDK
-This change allows us to ship dotnet ef as a regular .NET CLI tool that can be installed as either a global or local tool.For example, to be able to manage migrations or scaffold a DbContext, install dotnet ef as a global tool typing the following command:
-https://devblogs.microsoft.com/dotnet/announcing-entity-framework-core-3-0-preview-4/
 
-dotnet tool install --global dotnet-ef
+
+
+
