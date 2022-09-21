@@ -118,6 +118,15 @@ https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/aab083a45f9ef9fc
 
 
 SECTION07 - SOURCE CODE
+https://github.com/trevoirwilliams/LeaveManagementWeb-Net6/tree/e1addab7a0c97de5353c3bbd577c0a3cbb26f21f
+
+add-migration AddedDefaultUsersAndRoles
+update-database
+update-database AddedLeaveTables
+remove-migration -- removes last migration
+update-database
+
+Papercut SMTP
 
 SECTION08 - SOURCE CODE
 
