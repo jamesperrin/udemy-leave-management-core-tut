@@ -2,6 +2,7 @@
     string appName = "Leave Management (NET 6)";
     ViewData["Title"] = appName;
     string currentYear = $"{DateTime.Now.Year}";
+    bool isAdministrator = User.IsInRole(Roles.Administrator);
 }
 
 <!DOCTYPE html>
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    @*<link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />*@
     @await RenderSectionAsync("Styles", required: false)
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LeaveManagement.Web.styles.css" asp-append-version="true" />
@@ -39,20 +39,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="" title="My Leave">My Leave</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Leave Management
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="LeaveTypes" asp-action="Index" title="Leave Types">Leave Types</a></li>
-                                <li><a class="dropdown-item" href="#" title="Leave Allocations">Leave Allocations</a></li>
-                                <li><a class="dropdown-item" href="#" title="Leave Requests">Leave Requests</a></li>
-                                <li><a class="dropdown-item" href="#" title="Employee Management">Employee Management</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy" title="Privacy">Privacy</a>
-                        </li>
+
+                        @if (isAdministrator)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="LeaveTypes" asp-action="Index" title="Leave Types"></a></li>
+                                    <li><a class="dropdown-item" href="#" title="Leave Allocations"></a></li>
+                                    <li><a class="dropdown-item" href="#" title="Leave Requests"></a></li>
+                                    <li><a class="dropdown-item" href="#" title="Employee Management"></a></li>
+                                </ul>
+                            </li>
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
